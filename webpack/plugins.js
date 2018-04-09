@@ -25,7 +25,7 @@ const plugins = [
   new CleanWebpackPlugin(pathsToClean, cleanOptions),
   new LodashModuleReplacementPlugin(),
   new HtmlWebpackPlugin({
-    template: join('src', 'index.html'),
+    template: join('frontend', 'index.html'),
   }),
   new ExtractTextPlugin(join(dist, 'bundle.css'), {
     allChunks: true,
@@ -68,7 +68,7 @@ if (isProduction) {
     new WorkboxPlugin({
       globDirectory: dist,
       globPatterns: ['**/*.{html,js,css}'],
-      swSrc: join('src', 'service-worker.js'),
+      swSrc: join('frontend', 'service-worker.js'),
       swDest: join(dist, 'service-worker.js'),
       clientsClaim: true,
       skipWaiting: true,

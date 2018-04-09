@@ -45,14 +45,14 @@ const rules = [{
   test: /\.(woff2|woff|ttf|eot|svg)(\?.*$|$)/,
   loader: 'file-loader?name=fonts/[name].[ext]',
   include: [
-    join(__dirname, 'src'),
+    join(__dirname, 'frontend'),
     join(__dirname, 'node_modules'),
   ],
 }, {
   test: /\.(jpg|jpeg|gif|png|ico)(\?.*$|$)$/,
   loader: 'file-loader?name=img/[name].[ext]',
   include: [
-    join(__dirname, 'src'),
+    join(__dirname, 'frontend'),
     join(__dirname, 'node_modules'),
   ],
 }];
