@@ -17,3 +17,16 @@ Helmet is actually just a collection of nine smaller middleware functions that s
 - xssFilter sets X-XSS-Protection to enable the Cross-site scripting (XSS) filter in most recent web browsers.
 
 If you don’t want to use Helmet, then at least disable the X-Powered-By header. Attackers can use this header (which is enabled by default) to detect apps running Express and then launch specifically-targeted attacks.
+
+## Routing, Server logic
+BodyParser: helps parse incoming HTTP requests
+Morgan: Logging messages or statuses to the server
+Express: parse response and routing
+
+## Database
+MongoDB: Data store
+Mongoose: ORM for interfacing with the Data store
+
+## Authenthication
+Bcrpyt: storing a users password safely
+Passport (Local): authenticating users (with a username/password)
