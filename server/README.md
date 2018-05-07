@@ -1,3 +1,12 @@
+#### Preliminary Setup
+Create a file called config.js in the server directory. In the server/config.js file export an object that has the properties of secret and corsOptions.
+```
+module.exports = {
+    secret: 'mySecret',
+    corsOptions: { /* npm cors options */ }
+}
+```
+
 #### Install dependencies
 To run the server, first install packages using yarn
 ```

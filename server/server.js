@@ -8,6 +8,8 @@ const helmet = require('helmet');
 const session = require('express-session');
 const compression = require('compression');
 const router = require('./routes');
+const cors = require('cors');
+const config = require('./config');
 
 let app = express();
 
@@ -18,6 +20,7 @@ const DATABASE = 'react-universal';
 /* APP SETUP */
 
 app.use(logger('dev'));
+app.use(cors(config.corsOptions)); // TODO: define 
 // Apply body Parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

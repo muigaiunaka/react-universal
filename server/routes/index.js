@@ -8,7 +8,10 @@ const requireSignin = passport.authenticate('local', { session: false });
 module.exports = (app) => {
 
     app.get('/', requireAuth, function(req, res, next) {
-        res.json({"water": "wet", "monkey": "pet", "secret": "topsecret"})
+        let user = {
+            email: req.user.email,
+        }
+        res.json({ user: user })
     });
 
     app.post('/signin', requireSignin, Authentication.signin);
