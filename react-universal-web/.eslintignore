@@ -1,0 +1,3 @@
+webpack/*.js
+dist/*.js
+reactwebapp/service-worker.js
