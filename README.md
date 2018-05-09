@@ -1,16 +1,22 @@
-React Universal
+# React Universal
 
-#### Fire up the database
-To get mongodb running locally, run:
-```
-mongod
-```
-#### Run the server
-cd server && npm run watch 
+Entities included and tasks to do 
+## React Web 
+#### Todo:
+- Build out base UI system
+- Allow for SASS/SCSS
+- Build out SVG icons for generic components
+- Chai + Mocha Tests
 
-#### Run Webapack
-run:
-```
-ntl
-```
-to list the possible actions, select start
+
+## React Native
+#### Todo:
+- Connect Client to Node Server endpoints
+- Add animations
+- Figure out best testing framework
+
+## Node Server
+#### Todo:
+- Documentation
+- Intro GraphQL option
+- Test suite

@@ -1,5 +1,1 @@
-dist
-node_modules
-.idea
-coverage
-npm-debug.log
+.DS_Store
