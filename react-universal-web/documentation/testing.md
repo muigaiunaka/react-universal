@@ -1,4 +1,4 @@
-Chai + Mocha
+Jest
 
 Testing Components
 import the component you wish to test
@@ -11,3 +11,8 @@ ex. it('does blah blah')
 
 expect // use 'expect' to make an assertion about a target
 ex. expect
+
+Node Jest testing
+
+Auth testing helpful resource:
+https://medium.com/@juha.a.hytonen/testing-authenticated-requests-with-supertest-325ccf47c2bb
