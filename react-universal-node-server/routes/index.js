@@ -14,6 +14,10 @@ module.exports = (app) => {
         res.json({ user: user })
     });
 
+    app.get('/test', function(req, res, next) {
+        res.send("test");
+    })
+
     app.post('/signin', requireSignin, Authentication.signin);
 
     app.post('/signup', Authentication.signup);

@@ -45,6 +45,7 @@ app.use(session({
 }))
 router(app);
 
+module.exports = app
 // import routes
 
 mongoose.connect(`mongodb://${SERVER}/${DATABASE}`)

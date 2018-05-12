@@ -19,4 +19,9 @@ Entities included and tasks to do
 #### Todo:
 - Documentation
 - Intro GraphQL option
-- Test suite
+- introduce TDD test suite
+
+## General Notes
+#### Todo:
+- Research Behavior Driven Development
+- Provide 

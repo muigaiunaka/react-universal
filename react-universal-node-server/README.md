@@ -10,12 +10,16 @@ module.exports = {
 #### Install dependencies
 To run the server, first install packages using yarn
 ```
-yarn
+yarn install
 ```
 #### Fire up the database
 Next, open up a separate termminal tab and run the mongodb server. 
 ```
 mongod
+```
+#### Run the tests to ensure they pass by running
+```
+yarn test
 ```
 #### Run the server
 Lastly, run the development server
