@@ -1,15 +1,15 @@
 import React from 'react';
-import App from './components/App';
-import Profile from './components/profile';
-import AuthLayout from './components/auth/AuthLayout';
-import RequireAuth from './components/auth/RequireAuth';
-import SignIn from './components/auth/SignIn';
-import SignOut from './components/auth/SignOut';
-import SignUp from './components/auth/SignUp';
+import Landing from './components/Landing/Landing';
+import Profile from './components/Profile/Profile';
+import AuthLayout from './components/Auth/AuthLayout';
+import RequireAuth from './components/Auth/RequireAuth';
+import SignIn from './components/Auth/SignIn';
+import SignOut from './components/Auth/SignOut';
+import SignUp from './components/Auth/SignUp';
 
 const Routes = () => (
     <div>
-        <AuthLayout exact path="/" component={App}/>
+        <AuthLayout exact path="/" component={Landing}/>
         <AuthLayout path="/signin" component={SignIn}/>
         <AuthLayout path="/signout" component={SignOut}/>
         <AuthLayout path="/signup" component={SignUp}/>

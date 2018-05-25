@@ -1,14 +1,14 @@
 import React from 'react';
 import { Route } from 'react-router';
-import Header from '../Header';
+import Header from '../Header/Header';
 
 const AuthLayout = ({component: Component, ...rest }) => {
     return (
         <Route {...rest} render={matchProps => (
-            <div>
+            <main>
                 <Header />
                 <Component {...matchProps} />
-            </div>
+            </main>
         )} />
     )
 }

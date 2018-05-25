@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../redux/actions';
+import * as actions from '../../redux/actions';
+import './Profile.scss';
 
 class Profile extends Component {
     state = {
@@ -23,10 +24,10 @@ class Profile extends Component {
 
     render() {
         return (
-            <div>
+            <section>
                 <h1>Welcome to your Profile</h1>
                 <strong>Email</strong> { this.fetchUsers() }
-            </div>
+            </section>
         )
     }
 }

@@ -1,0 +1,18 @@
+// import variables only once in Base 
+// and separately in other sass files outside of assets
+@import 'Variables.scss';
+
+* {
+    box-sizing: border-box;
+}
+body, html {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+section {}
+
+@import 'Buttons.scss';
+@import 'FlexLayouts.scss';
+@import 'Forms.scss';
+@import 'Typography.scss';

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { nav , main } from './Header.scss';
+import './Header.scss';
 
 class Header extends Component {
     renderLinks() {
@@ -14,12 +16,12 @@ class Header extends Component {
                 <NavLink exact to="/signin" activeClassName="selected" key={1}>Sign In</NavLink>,
                 <NavLink exact to="/signup" activeClassName="selected" key={2}>Sign Up</NavLink>
             ]
-            
         }
     }
     render() {
         return (
-            <nav>
+            
+            <nav className='main'>
                 <NavLink
                     exact
                     to="/"

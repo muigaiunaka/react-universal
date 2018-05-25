@@ -1,0 +1,19 @@
+.d-flex {
+    display: flex;
+
+    $aligns: (start, end, center, between, around, baseline, stretch);
+    @each $value in $aligns {
+        &.justify-content-#{$value}  {
+            justify-content: $value;
+        }
+        &.align-items-#{$value} {
+            align-items: $value;
+        }
+    }
+    $flex-flow: (column, row, column-reverse, row-reverse);
+    @each $value in $flex-flow {
+        &.flex-#{$value} {
+            flex-flow: $value;
+        }
+    }
+}

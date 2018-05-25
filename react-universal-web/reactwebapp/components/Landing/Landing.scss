@@ -1,0 +1,14 @@
+.logo {
+    &.default {
+        width: 100px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        animation: rotate 3s infinite linear;
+    }
+}
+@keyframes rotate {
+    100% { 
+        transform: rotate(360deg);
+    }
+}

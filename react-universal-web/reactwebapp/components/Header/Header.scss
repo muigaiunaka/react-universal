@@ -1,0 +1,15 @@
+@import '../../assets/scss/Variables.scss';
+
+nav {
+
+    &.main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    a {
+        color: $black;
+        margin: 1em;
+        text-decoration: none;
+    }
+}

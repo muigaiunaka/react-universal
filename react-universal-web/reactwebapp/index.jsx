@@ -10,6 +10,7 @@ import reduxThunk from 'redux-thunk';
 import reducers from './redux/reducers';
 import { AUTH_USER } from './redux/actions/types';
 import Routes from './Routes';
+import './assets/scss/Base.scss';
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 // contains the redux state
