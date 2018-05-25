@@ -5,8 +5,9 @@ import {
     Navigator,
     TextInput,
     Button
-  } from 'react-native';
-import styles from '../utils/ScreensStylesheet';
+} from 'react-native';
+import ScreensStyles from '../utils/ScreensStyles';
+import InputStyles from '../utils/InputStyles';
 
 export default class SigninScreen extends Component {
     static navigationOptions = {
@@ -16,18 +17,22 @@ export default class SigninScreen extends Component {
         const { navigate } = this.props.navigation;
         return (
             <View>
-                <TextInput />
-                <Button
-                title="Don't have an account yet? Sign up here."
-                onPress={() =>
-                    navigate('Signup')
-                }
+                <TextInput
+                    style={[InputStyles.input]}
+                    placeholder="Sign in"
+                    keyboardType="default"
                 />
                 <Button
-                title="Go to home screen"
-                onPress={() =>
-                    navigate('Home')
-                }
+                    title="Don't have an account yet? Sign up here."
+                    onPress={() =>
+                        navigate('Signup')
+                    }
+                />
+                <Button
+                    title="Go to home screen"
+                    onPress={() =>
+                        navigate('Home')
+                    }
                 />
             </View>
         )
