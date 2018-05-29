@@ -1,0 +1,10 @@
+.alert {
+
+    &.error {
+        border-left: 3px solid $error;
+        color: $error;
+        font-size: 0.8em;
+        margin-top: 0.4em;
+        padding-left: 0.4em;
+    }
+}

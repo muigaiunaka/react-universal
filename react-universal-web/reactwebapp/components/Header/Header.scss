@@ -11,5 +11,8 @@ nav {
         color: $black;
         margin: 1em;
         text-decoration: none;
+        &.selected {
+            color: $purple;
+        }
     }
 }

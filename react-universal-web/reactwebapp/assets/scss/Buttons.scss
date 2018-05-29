@@ -1,9 +1,16 @@
 button,
-.button {
+.button,
+[role="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
     border: none;
     color: inherit;
     cursor: pointer;
+    font-size: 0.9em;
     outline: none;
+    padding: 0;
+    text-transform: capitalize;
 
     a {
         color: inherit;
@@ -19,5 +26,8 @@ button,
     &.dark {
         background: $black;
         color: $white;
+    }
+    &.large {
+        font-size: 1.1em;
     }
 }

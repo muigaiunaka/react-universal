@@ -6,12 +6,13 @@
     box-sizing: border-box;
 }
 body, html {
-    font-family: sans-serif;
+    font-family: $sans-serif;
     margin: 0;
     padding: 0;
 }
 section {}
 
+@import 'Alerts.scss';
 @import 'Buttons.scss';
 @import 'FlexLayouts.scss';
 @import 'Forms.scss';

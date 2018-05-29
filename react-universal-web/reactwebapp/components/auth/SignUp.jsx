@@ -21,24 +21,19 @@ class SignUp extends Component {
 
     render() {
         const { handleSubmit } = this.props;
-        const InputField = ({ input, label, type, meta: { touched, error, warning }, }) =>
-            <div>
+        const InputField = ({ placeholder, input, label, type, meta: { touched, error, warning }, }) =>
+            <fieldset>
                 <label>{label}</label>
-                <input {...input} type={type} />
+                <input {...input} type={type} placeholder={placeholder}/>
                 {touched && error && <Error errorMessage={error} />}
-            </div>;
+            </fieldset>;
         return (
-            <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-                <fieldset>
-                    <Field name="email" component={InputField} label="Email" type="email" />
-                </fieldset>
-                <fieldset>
-                    <Field name="password" component={InputField} label="Password" type="password" />
+            <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}
+                className="d-flex auth-form flex-column">
+                    <Field name="email" component={InputField} label="Email" type="email" placeholder="Email" />
+                    <Field name="password" component={InputField} label="Password" type="password" placeholder="Password" />
                     {<div>{this.props.password}</div>}
-                </fieldset>
-                <fieldset>
-                    <Field name="passwordConfirm" component={InputField} label="Confirm Password" type="password" />
-                </fieldset>
+                    <Field name="passwordConfirm" component={InputField} label="Confirm Password" type="password" placeholder="Confirm Password"/>
                 { this.renderAlert() }
                 <button type="submit">Sign Up</button>
             </form>

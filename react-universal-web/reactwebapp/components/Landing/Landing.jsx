@@ -11,7 +11,7 @@ const Landing = () => (
             <Link
                 to="/signin"
             >
-                Come Log in
+                Go Sign In
             </Link>
         </button>
     </section>

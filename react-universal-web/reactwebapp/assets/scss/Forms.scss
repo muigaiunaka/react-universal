@@ -1,6 +1,50 @@
 form {
 
+    &.auth-form {
+        box-shadow: $box-shadow1;
+        margin: 0 auto;
+        max-width: 414px;
+        padding: 4em 2em;
+        position: relative;
+
+        fieldset {
+            display: block;
+            margin-bottom: 1em;
+
+            label {
+                display: block;
+                font-size: 0.7em;
+                text-transform: uppercase;
+            }
+            label + input {
+                border: none;
+                border-bottom: 1px solid $black;
+                display: block;
+                outline: none;
+                padding: 5px;
+                transition: border-bottom 0.150s ease-in-out;
+                width: 100%;
+
+                &:active, &:focus {
+                    border-bottom: 1px solid $focused;
+                    outline: none;
+
+                    ~ label {
+                        font-size: 0.5em;
+                    }
+                }
+            }
+        }
+        button {
+            @include gradient($purple, $purple); //@include gradient(#56106D, #B70263);
+            color: $white;
+            padding: 1em 3em;
+            text-transform: uppercase;
+        }
+    }
 }
 fieldset {
-
+    border: none;
+    margin: 0;
+    padding: 0;
 }
