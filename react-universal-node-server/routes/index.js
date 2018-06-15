@@ -1,4 +1,5 @@
 const Authentication = require('../controllers/authentication');
+const UserController = require('../controllers/user');
 const passportService = require('../services/passport');
 const passport = require('passport');
 
@@ -18,8 +19,23 @@ module.exports = (app) => {
         res.send("test");
     })
 
+    app.get('/admin', requireAuth, Authentication.requireAdmin, function(req, res, next) {
+        let role = {
+            isAdmin: true,
+            role: req.user.role,
+        }
+        res.json({ role: role })
+    });
+
+    app.get('/user', requireAuth, UserController.fetchUser);
+
+    app.delete('/user', requireAuth, UserController.deleteUser);
+
+    app.get('/users', requireAuth, Authentication.requireAdmin, UserController.fetchUsers)
+
     app.post('/signin', requireSignin, Authentication.signin);
 
     app.post('/signup', Authentication.signup);
+
 }
 
