@@ -1,6 +1,7 @@
 import React from 'react';
 import Landing from './components/Landing/Landing';
 import Profile from './components/Profile/Profile';
+import Admin from './components/Admin/Admin';
 import AuthLayout from './components/Auth/AuthLayout';
 import RequireAuth from './components/Auth/RequireAuth';
 import SignIn from './components/Auth/SignIn';
@@ -14,6 +15,7 @@ const Routes = () => (
         <AuthLayout path="/signout" component={SignOut}/>
         <AuthLayout path="/signup" component={SignUp}/>
         <AuthLayout path="/profile" component={RequireAuth(Profile)}/>
+        <AuthLayout path="/admin" component={RequireAuth(Admin)}/>
     </div>
 )
 
