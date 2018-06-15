@@ -6,6 +6,16 @@ const bcrypt = require('bcrypt')
 const userSchema = new Schema({
     email: { type: String, required: true, unique: true, lowercase: true },
     password: String,
+    role: {type: String, enum: ['USER', 'ADMIN'], required: true, default: "USER"},
+    phone: {
+        type: String,
+        validate: {
+          validator: function(v) {
+            return /\d{3}-\d{3}-\d{4}/.test(v);
+          }, message: '{VALUE} is not a valid phone number!'
+        },
+        // required: [true, 'User phone number required']
+    },
 });
 // On save hook, encrypt password
 // before saving a model, run this function
