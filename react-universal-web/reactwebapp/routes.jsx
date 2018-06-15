@@ -14,6 +14,7 @@ const Routes = () => (
         <AuthLayout path="/signin" component={SignIn}/>
         <AuthLayout path="/signout" component={SignOut}/>
         <AuthLayout path="/signup" component={SignUp}/>
+        {/* RequireAuth: Higher Order Component requiring user to be authenticated (aka signed in) */}
         <AuthLayout path="/profile" component={RequireAuth(Profile)}/>
         <AuthLayout path="/admin" component={RequireAuth(Admin)}/>
     </div>
