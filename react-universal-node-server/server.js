@@ -15,8 +15,8 @@ let app = express();
 
 const EXPIRYDATE = new Date(Date.now() + 60 * 60 * 1000) // 1 hour
 const PORT = process.env.PORT || 3005;
-const SERVER = '127.0.0.1:27017';
-const DATABASE = 'react-universal';
+const SERVER = process.env.SERVER || '127.0.0.1:27017';
+const DATABASE = process.env.DATABASE || 'react-universal';
 /* APP SETUP */
 
 app.use(logger('dev'));
