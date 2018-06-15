@@ -14,7 +14,9 @@ exports.signin = (req, res, next) => {
 exports.signup = (req, res, next) => {
     const email = req.body.email;
     const password = req.body.password;
-
+    const phone = req.body.phone;
+    const role = req.body.role;
+    
     if (!email || !password) { 
         return res.status(422).send({ error: 'Please enter in an email and password' }); 
     }
@@ -31,6 +33,8 @@ exports.signup = (req, res, next) => {
         const user = new User({
             email: email,
             password: password,
+            phone: phone,
+            role: role,
         });
 
         user.save((err) => {
@@ -39,4 +43,12 @@ exports.signup = (req, res, next) => {
             res.json({ token: tokenForUser(user) });
         });
     });
+}
+
+exports.requireAdmin = (req, res, next) => {
+    const user = req.user;
+    if (user.role !== 'ADMIN') {
+        return res.status(422).send({ error: 'User does not have admin access'});
+    }
+    next();
 }
