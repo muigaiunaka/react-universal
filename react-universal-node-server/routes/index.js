@@ -31,6 +31,8 @@ module.exports = (app) => {
 
     app.delete('/user', requireAuth, UserController.deleteUser);
 
+    app.put('/user', requireAuth, UserController.updateUser);
+
     app.get('/users', requireAuth, Authentication.requireAdmin, UserController.fetchUsers)
 
     app.post('/signin', requireSignin, Authentication.signin);

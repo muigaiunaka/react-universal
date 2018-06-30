@@ -39,6 +39,23 @@ exports.fetchUser = (req, res, next) => {
         }
         res.json({ user: user })
     } catch (err) {
-
+        throw err;
     }
+}
+
+exports.updateUser = (req, res, next) => {
+    let userId = req.user._id;
+    
+    User.findByIdAndUpdate(userId, req.body, {new: true}, function(err, user) {
+        try {
+            const response = {
+                message: "User successfully updated their information",
+                id: user._id
+            };
+            // response with a message 
+            return res.status(200).send(response);
+        } catch (err) {
+            throw err;
+        }
+    })
 }

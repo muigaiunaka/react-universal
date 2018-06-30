@@ -4,9 +4,25 @@ const bcrypt = require('bcrypt')
 
 // Define our user model
 const userSchema = new Schema({
-    email: { type: String, required: true, unique: true, lowercase: true },
-    password: String,
-    role: {type: String, enum: ['USER', 'ADMIN'], required: true, default: "USER"},
+    email: { 
+        type: String, 
+        required: true, 
+        unique: true, 
+        lowercase: true, 
+        // validate: [validateEmail, 'Please fill a valid email address'],
+        match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address'] 
+    },
+    password: { 
+        type: String,
+        required: true,
+        minLength: 5,
+    },
+    role: { 
+        type: String, 
+        required: true, 
+        enum: ['USER', 'ADMIN'], 
+        default: "USER"
+    },
     phone: {
         type: String,
         validate: {
