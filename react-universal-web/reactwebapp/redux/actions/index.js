@@ -2,7 +2,7 @@ import axios from 'axios';
 import history from '../../utils/history';
 import { AUTH_USER, UNAUTH_USER, GOOGLE_AUTH_USER, AUTH_ERROR, FETCH_USER, ADMIN_USER, FETCH_USERS, DELETE_USER } from './types';
 
-const ROOT_URL = 'http://localhost:3005';
+const ROOT_URL = process.env.PORT || 'http://localhost:3005';
 
 export function signinUser({ email, password }) {
     return async (dispatch) => {
