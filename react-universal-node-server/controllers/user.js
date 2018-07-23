@@ -34,8 +34,11 @@ exports.deleteUser = (req, res, next) => {
 exports.fetchUser = (req, res, next) => {
     
     try {
-        let user = {
-            email: req.user.email,
+        let user = {};
+        if (req.user.local.email) {
+            user.email = req.user.local.email
+        } else if (req.user.google.email) {
+            user.email = req.user.google.email
         }
         res.json({ user: user })
     } catch (err) {
