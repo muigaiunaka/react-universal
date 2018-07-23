@@ -9,10 +9,10 @@ nav {
     }
     a {
         color: $black;
-        margin: 1em;
+        margin: 1rem;
         text-decoration: none;
         &.selected {
-            color: $purple;
+            color: $primary;
         }
     }
 }

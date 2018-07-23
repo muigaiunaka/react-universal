@@ -6,17 +6,12 @@ import './Header.scss';
 
 class Header extends Component {
     renderLinks() {
-        if (this.props.authenticated) {
-            return [
-                <NavLink exact to="/profile" activeClassName="selected" key={1}>Profile</NavLink>,
-                <NavLink exact to="/signout" activeClassName="selected" key={2}>Sign Out</NavLink>,
-            ]
-        } else {
-            return [
-                <NavLink exact to="/signin" activeClassName="selected" key={1}>Sign In</NavLink>,
-                <NavLink exact to="/signup" activeClassName="selected" key={2}>Sign Up</NavLink>
-            ]
-        }
+        return [
+            <NavLink exact to={this.props.authenticated ? "/profile" : "/signin"} 
+            activeClassName="selected" key={1}>{this.props.authenticated ? "Profile" : "Sign In"}</NavLink>,
+            <NavLink exact to={this.props.authenticated ? "/signout" : "/signup"} 
+            activeClassName="selected" key={2}>{this.props.authenticated ? "Sign Out" : "Sign Up"}</NavLink>,
+        ]
     }
     render() {
         return (

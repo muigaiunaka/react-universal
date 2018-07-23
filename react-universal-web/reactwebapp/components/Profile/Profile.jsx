@@ -40,13 +40,14 @@ class Profile extends Component {
     }
 
     render() {
+
         const adminButton = <button className="link primary">
-        <Link
-            to="/admin"
-        >
-            Admin Panel
-        </Link>
-    </button>
+            <Link
+                to="/admin"
+            >
+                Admin Panel
+            </Link>
+        </button>
         return (
             <section>
                 <h1>Welcome to your Profile</h1>
