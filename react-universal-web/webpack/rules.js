@@ -67,10 +67,15 @@ const rules = [{
   ],
 }, {
   test: /\.(jpg|jpeg|gif|png|ico)(\?.*$|$)$/,
-  loader: 'file-loader?name=img/[name].[ext]',
-  include: [
-    join(__dirname, 'reactwebapp'),
-    join(__dirname, 'node_modules'),
-  ],
+  loader: 'file-loader',
+  options: {
+    context: join(__dirname, 'reactwebapp'),
+    name: 'images/[name].[ext]',
+  },
+  // loader: 'file-loader?name=img/[name].[ext]',
+  // include: [
+  //   join(__dirname, 'reactwebapp'),
+  //   join(__dirname, 'node_modules'),
+  // ],
 }];
 module.exports = rules;
