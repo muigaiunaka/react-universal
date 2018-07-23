@@ -7,7 +7,6 @@ import RequireAuth from './components/Auth/RequireAuth';
 import SignIn from './components/Auth/SignIn';
 import SignOut from './components/Auth/SignOut';
 import SignUp from './components/Auth/SignUp';
-import StyleGuide from './components/StyleGuide/StyleGuide';
 import SplitLayout from './components/SplitLayout/SplitLayout';
 
 const Routes = () => (
@@ -19,7 +18,6 @@ const Routes = () => (
         {/* RequireAuth: Higher Order Component requiring user to be authenticated (aka signed in) */}
         <AuthLayout path="/profile" component={RequireAuth(SplitLayout(Profile))}/>
         <AuthLayout path="/admin" component={RequireAuth(Admin)}/>
-        <AuthLayout path="/style-guide" component={StyleGuide}/>
     </div>
 )
 
