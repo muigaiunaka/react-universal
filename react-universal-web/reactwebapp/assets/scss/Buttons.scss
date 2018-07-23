@@ -7,7 +7,7 @@ input[type="button"] {
     border: none;
     color: inherit;
     cursor: pointer;
-    font-size: 0.9em;
+    font-size: 0.9rem;
     outline: none;
     padding: 0;
     text-transform: capitalize;
@@ -18,9 +18,9 @@ input[type="button"] {
     }
     &.default {
         display: block;
-        margin: 1em auto;
-        padding: 1em 2em;
-        font-size: 1em;
+        margin: 1rem auto;
+        padding: 1rem 2rem;
+        font-size: 1rem;
         text-transform: uppercase;
     }
     &.dark {
@@ -35,10 +35,10 @@ input[type="button"] {
 
         a {
             display: block;
-            padding: 1em 2em;
+            padding: 1rem 2rem;
         }
     }
     &.large {
-        font-size: 1.1em;
+        font-size: 1.1rem;
     }
 }
