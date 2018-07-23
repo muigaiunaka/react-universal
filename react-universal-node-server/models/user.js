@@ -4,18 +4,23 @@ const bcrypt = require('bcrypt')
 
 // Define our user model
 const userSchema = new Schema({
-    email: { 
-        type: String, 
-        required: true, 
-        unique: true, 
-        lowercase: true, 
-        // validate: [validateEmail, 'Please fill a valid email address'],
-        match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address'] 
+    local: {
+        email: { 
+            type: String, 
+            unique: true, 
+            lowercase: true, 
+            match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address'] 
+        },
+        password: { 
+            type: String,
+            minLength: 5,
+        },
     },
-    password: { 
-        type: String,
-        required: true,
-        minLength: 5,
+    google: {
+        id: String,
+        token: String,
+        email: String,
+        name: String
     },
     role: { 
         type: String, 
@@ -38,22 +43,28 @@ const userSchema = new Schema({
 userSchema.pre('save', function(next) {
     // get access to the user model
     const user = this;
-
+    console.log("encrypting saved users password")
     // generate a salt then run callback
-    bcrypt.genSalt(10, function(err, salt) {
-        if (err) { return next(err); }
-        // hash (encrypt) our password using the salt
-        bcrypt.hash(user.password, salt, function(err, hash) {
+    if (user.local.password) {
+        console.log("local sign up")
+        bcrypt.genSalt(10, function(err, salt) {
             if (err) { return next(err); }
-            // overwrite plain text password with encrypted password
-            user.password = hash;
-            next();
+            // hash (encrypt) our password using the salt
+            bcrypt.hash(user.local.password, salt, function(err, hash) {
+                if (err) { return next(err); }
+                // overwrite plain text password with encrypted password
+                user.local.password = hash;
+                next();
+            })
         })
-    })
+    } else {
+        console.log("User is signing up using some other auth method, i.e. Google Auth")
+        next();
+    }
 });
 
 userSchema.methods.comparePassword = function(candidatePassword, callback) {
-    bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+    bcrypt.compare(candidatePassword, this.local.password, function(err, isMatch) {
         if (err) { return callback(err); }
         callback(null, isMatch);
     })
