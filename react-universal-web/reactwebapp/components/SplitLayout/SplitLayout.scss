@@ -1,0 +1,43 @@
+@import '../../assets/scss/Variables.scss';
+
+.layout {
+    &.split {
+        .split-aside, .split-content {
+            display: inline-flex;
+            flex-direction: column;
+            transition: width 600ms;
+            width: 50%;
+        }
+        .split-aside {
+            background: $dark;
+            height: 100vh;
+            @include respond-below(md) {
+                width: 30%;
+            }
+            @include respond-below(xs) {
+                width: 10%;
+            }
+            img {
+                height: 100%;
+                width: 100%;
+                object-position: center;
+                object-fit: cover;
+            }
+        }
+        .split-content {
+            box-shadow: $box-shadow2;
+            overflow-y: scroll;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            @include respond-below(md) {
+                width: 70%;
+            }
+            @include respond-below(xs) {
+                width: 90%;
+            }
+        }
+        .inner-component {
+            padding: 1rem;
+        }
+    }
+}
