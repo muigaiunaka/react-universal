@@ -1,6 +1,6 @@
 import axios from 'axios';
 import history from '../../utils/history';
-import { AUTH_USER, UNAUTH_USER, AUTH_ERROR, FETCH_USER, ADMIN_USER, FETCH_USERS, DELETE_USER } from './types';
+import { AUTH_USER, UNAUTH_USER, GOOGLE_AUTH_USER, AUTH_ERROR, FETCH_USER, ADMIN_USER, FETCH_USERS, DELETE_USER } from './types';
 
 const ROOT_URL = 'http://localhost:3005';
 
@@ -121,6 +121,24 @@ export function deleteUser() {
             }
         } catch(error) {
 
+        }
+    }
+}
+
+export function googleSigninUser() {
+    return async (dispatch) => {
+        try {
+            const response = await axios.get(`${ROOT_URL}/oauth/google` )
+            console.log("work damn it")
+            let token = response.data.token;
+            // update state to indicate user is authenticated
+            dispatch({ type: GOOGLE_AUTH_USER });
+            // save the JWT token
+            localStorage.setItem('token', token);
+            // redirect to the route that is protected
+            history.push('/profile');
+        } catch(error) {
+            dispatch(authError('Hmm, looks like we are having trouble signing you in through Google'));
         }
     }
 }

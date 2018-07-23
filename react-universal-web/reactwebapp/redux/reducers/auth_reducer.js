@@ -1,5 +1,6 @@
 import {
     AUTH_USER,
+    GOOGLE_AUTH_USER,
     UNAUTH_USER,
     AUTH_ERROR,
     FETCH_USER,
@@ -16,6 +17,8 @@ export default function(state = {}, action) {
             return { ...state, error: '', authenticated: false };
         case AUTH_ERROR:
             return { ...state, error: action.payload}
+        case GOOGLE_AUTH_USER:
+            return { ...state, error: '', authenticated: true };
         case FETCH_USER:
             return { ...state, user: action.payload }
         case ADMIN_USER:
