@@ -1,20 +1,27 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins|Song+Myung');
 
 $black: #2d2d2d;
+$darkgray: #404040;
+$gray: #7F7F7F;
+$lightgray: #E5E5E5;
 $white: #f7f7f7;
 $error: #FF225A; //#ff0033;
 $success: #13E864;
 $purple: #6713E8;
-$focused: #22A6FF;//rgba(81, 203, 238, 1);
-$primary: $purple;
+$blue: #22A6FF;//rgba(81, 203, 238, 1);
+$focused: $blue;
+$primary: $blue;
+$dark: $black;
 
 $sans-serif: 'Poppins', 'Roboto', sans-serif;
 $serif: 'Song Myung', serif;
+$base-font-size: 16px;
 
 $box-shadow1: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+$box-shadow2: 0 6px 15px rgba(0,0,0,0.47), 0 9px 14px rgba(0,0,0,0.63);
 
 // Mixins
-// This mixin defin on ly a gradient color from left to right between 2 colors
+// This mixin define only a gradient color from left to right between 2 colors
 // Just add this mixin to ensure the browser compatibility.
 @mixin gradient($left, $right) {
     background: #{$left}; /* Old browsers */
@@ -23,3 +30,10 @@ $box-shadow1: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     background: linear-gradient(to right, #{$left} 0%,#{$right} 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$left}', endColorstr='#{$right}',GradientType=1 ); /* IE6-9 */
 }
+
+@mixin pattern() {
+    background-color: #22A6FF;
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f3f3f3' fill-opacity='0.67'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+@import "MediaQueries";
