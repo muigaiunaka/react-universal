@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import * as actions from '../../redux/actions';
 import Error from '../alerts/Error';
+import InputField from './InputField';
 
 class SignUp extends Component {
     handleFormSubmit(formProps) {
@@ -21,12 +22,7 @@ class SignUp extends Component {
 
     render() {
         const { handleSubmit } = this.props;
-        const InputField = ({ placeholder, input, label, type, meta: { touched, error, warning }, }) =>
-            <fieldset>
-                <label>{label}</label>
-                <input {...input} type={type} placeholder={placeholder}/>
-                {touched && error && <Error errorMessage={error} />}
-            </fieldset>;
+
         return (
             <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}
                 className="d-flex auth-form flex-column">

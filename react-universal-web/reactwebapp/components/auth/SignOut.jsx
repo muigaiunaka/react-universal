@@ -8,9 +8,10 @@ class SignOut extends Component {
     }
     render() {
         return (
-            <div>
-                You just signed out! Hope to see you back soon.
-            </div>
+            <section>
+                <h2>Ciao, for now</h2>
+                <h4>We have signed you out successfully! We hope to see you back soon.</h4>
+            </section>
         )
     }
 }
