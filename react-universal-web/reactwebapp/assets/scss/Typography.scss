@@ -1,5 +1,40 @@
-h1, h2, h3, h4, h5, h6, p, a, figcaption {
-    .center {
-        text-align: center;
+$type: (
+    body: $base-font-size,
+    h1: 3rem,
+    h2: 2.6rem,
+    h3: 2.1rem,
+    h4: 1.8rem,
+    h5: 1.5rem,
+    h6: 1.2rem,
+    p: 1rem,
+    small: 0.8rem,
+    big: 4rem,
+);
+
+@each $key, $value in $type {
+    #{$key} {
+        font-size: $value;
+        // @if str-index($key, h) == 1 {
+        //     color: blue;
+        // }
+        .center {
+            text-align: center;
+        }
+        &.serif {
+            font-family: $serif;
+        }
+        &.sans-serif {
+            font-family: $sans-serif;
+        }
+    }
+}
+
+@for $i from 1 through 6 {
+    h#{$i} {
+        @if $i % 2 == 0 { // sets even numbered headings as serif
+            font-family: $serif;
+        } @else { // sets odd numbered headings as sans serif
+            font-family: $sans-serif;
+        }
     }
 }
