@@ -17,9 +17,9 @@ const passport = require('passport');
 let app = express();
 
 const EXPIRYDATE = new Date(Date.now() + 60 * 60 * 1000) // 1 hour
-const PORT = process.env.PORT;
-const SERVER = process.env.SERVER;
-const DATABASE = process.env.DATABASE;
+// const PORT = process.env.PORT;
+// const SERVER = process.env.SERVER;
+// const DATABASE = process.env.DATABASE;
 /* APP SETUP */
 
 app.use(logger("dev"));
@@ -52,12 +52,10 @@ router(app);
 
 module.exports = app
 // import routes
-
-mongoose.connect(`mongodb://${SERVER}/${DATABASE}`)
+mongoose.connect(config.db)
 .then(() => {
-  app.listen(PORT);
-  console.log(`Server running on port ${PORT}, no matter what you say or what you do`);
-  console.log(process.env.PORT)
+  app.listen(config.port);
+  console.log(`Server running on port ${config.port}, no matter what you say or what you do`);
 })
 .catch((e) => {
   console.log(e);
