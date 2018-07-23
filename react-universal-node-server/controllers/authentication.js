@@ -11,6 +11,13 @@ exports.signin = (req, res, next) => {
     res.send({ token: tokenForUser(req.user) });
 }
 
+exports.googleSignin = (req, res, next) => {
+    console.log('google signin')
+    console.log(tokenForUser(req.user))
+    
+    res.send({ token: tokenForUser(req.user) });
+}
+
 exports.signup = (req, res, next) => {
     const email = req.body.email;
     const password = req.body.password;
@@ -21,7 +28,7 @@ exports.signup = (req, res, next) => {
         return res.status(422).send({ error: 'Please enter in an email and password' }); 
     }
 
-    User.findOne({ email: email }, function(err, existingUser) {
+    User.findOne({ 'local.email' : email }, function(err, existingUser) {
         if (err) { return next(err); }
 
         // if a user with email does exist, return an error
@@ -30,12 +37,11 @@ exports.signup = (req, res, next) => {
         }
 
         // if a user with email does not exist, create and save user record
-        const user = new User({
-            email: email,
-            password: password,
-            phone: phone,
-            role: role,
-        });
+        const user = new User();
+        user.local.email = email
+        user.local.password = password
+        user.phone = phone
+        user.role = role ? role : "USER"
 
         user.save((err) => {
             if (err) { return next(err); }
