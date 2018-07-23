@@ -1,3 +1,6 @@
+### Before Getting Started
+Make sure you have gone through the Environment set up before hand
+
 #### Preliminary Setup
 Create a file called config.js in the server directory. In the server/config.js file export an object that has the properties of secret and corsOptions.
 ```
