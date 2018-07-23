@@ -1,25 +1,29 @@
 form {
 
     &.auth-form {
-        box-shadow: $box-shadow1;
+        // box-shadow: $box-shadow1;
         margin: 0 auto;
-        max-width: 414px;
-        padding: 4em 2em;
+        max-width: 476px;
+        padding: 4rem 2rem;
         position: relative;
+        width: 100%;
 
         fieldset {
             display: block;
-            margin-bottom: 1em;
+            margin-bottom: 1rem;
 
             label {
+                color: $gray;
                 display: block;
-                font-size: 0.7em;
+                font-size: 0.7rem;
+                padding: 5px;
                 text-transform: uppercase;
             }
             label + input {
                 border: none;
                 border-bottom: 1px solid $black;
                 display: block;
+                font-size: 2.3rem;
                 outline: none;
                 padding: 5px;
                 transition: border-bottom 0.150s ease-in-out;
@@ -30,15 +34,15 @@ form {
                     outline: none;
 
                     ~ label {
-                        font-size: 0.5em;
+                        font-size: 0.5rem;
                     }
                 }
             }
         }
         button {
-            @include gradient($purple, $purple); //@include gradient(#56106D, #B70263);
+            @include gradient($primary, $purple); //@include gradient(#56106D, #B70263);
             color: $white;
-            padding: 1em 3em;
+            padding: 1rem 3rem;
             text-transform: uppercase;
         }
     }
